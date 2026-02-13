@@ -112,6 +112,14 @@
 
 /* === Letter Content === */
 
+/* Ensure content is hidden before typewriter starts */
+.letter-content.pre-typewriter .letter-text p,
+.letter-content.pre-typewriter .signature-text,
+.letter-content.pre-typewriter .signature-name {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
 .letter-content {
     padding: var(--space-lg);
     position: relative;
@@ -146,21 +154,23 @@
     color: var(--color-text-primary);
 }
 
+/* Ensure paragraphs have strong contrast after typewriter */
+.letter-text p.typed-complete {
+    opacity: 1 !important;
+    color: #2c3e50 !important;
+    visibility: visible !important;
+}
+
 .letter-text p {
     margin-bottom: var(--space-md);
     opacity: 0;
     transform: translateY(20px);
-    animation: paragraphReveal 0.8s var(--ease-romantic) forwards;
     position: relative;
     padding-left: var(--space-md);
+    /* Animation will be controlled by JavaScript typewriter */
 }
 
-/* Stagger the paragraph animations */
-.letter-text p:nth-child(1) { animation-delay: 1s; }
-.letter-text p:nth-child(2) { animation-delay: 1.2s; }
-.letter-text p:nth-child(3) { animation-delay: 1.4s; }
-.letter-text p:nth-child(4) { animation-delay: 1.6s; }
-.letter-text p:nth-child(5) { animation-delay: 1.8s; }
+/* Paragraphs will be animated by JavaScript typewriter - no auto delays */
 
 /* Decorative quote marks */
 .letter-text p:first-child::before {
@@ -199,7 +209,7 @@
     font-style: italic;
     margin: 0 0 var(--space-sm) 0;
     opacity: 0;
-    animation: paragraphReveal 0.8s var(--ease-romantic) 2.2s forwards;
+    /* Animation controlled by JavaScript */
 }
 
 .signature-name {
@@ -209,8 +219,8 @@
     color: var(--color-text-romantic);
     margin: 0;
     opacity: 0;
-    animation: signatureReveal 1.2s var(--ease-romantic) 2.5s forwards;
     position: relative;
+    /* Animation controlled by JavaScript */
 }
 
 .signature-name::after {
@@ -218,6 +228,51 @@
     margin-left: var(--space-sm);
     opacity: 0;
     animation: heartPulse 2s ease-in-out 3.5s infinite;
+}
+
+/* === Print Button === */
+
+.print-button {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-primary-red);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all var(--duration-fast) var(--ease-smooth);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.1);
+}
+
+.print-button:hover {
+    background: var(--color-primary-red);
+    color: var(--color-accent-white);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+}
+
+.print-button:focus {
+    outline: 2px solid var(--color-primary-red);
+    outline-offset: 2px;
+}
+
+/* Mobile adjustments for print button */
+@media (max-width: 768px) {
+    .print-button {
+        top: var(--space-sm);
+        right: var(--space-sm);
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
 }
 
 /* === Interactive Heart Container === */

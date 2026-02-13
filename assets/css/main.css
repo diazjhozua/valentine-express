@@ -42,7 +42,7 @@
     --color-bg-primary: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
     --color-bg-secondary: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
     --color-bg-accent: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
-    --color-surface-white: rgba(255, 255, 255, 0.95);
+    --color-surface-white: rgba(255, 255, 255, 0.98);
     --color-surface-glass: rgba(255, 255, 255, 0.1);
 
     /* Shadow colors */
