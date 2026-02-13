@@ -98,6 +98,12 @@ class ValentineApp {
             // Set up customization panel
             this.setupCustomizationPanel();
 
+            // Ensure customization panel is hidden on startup
+            if (this.elements.customizationPanel) {
+                this.elements.customizationPanel.classList.add('hidden');
+                this.state.customizationOpen = false;
+            }
+
             // Set default theme to elegant
             this.changeTheme('elegant');
 
