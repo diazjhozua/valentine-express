@@ -17,6 +17,7 @@
         radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
         var(--color-bg-primary);
+    z-index: 2;
 
     /* Initial hidden state for entrance animation */
     opacity: 0;

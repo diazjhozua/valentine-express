@@ -15,6 +15,7 @@
     justify-content: center;
     background: var(--color-bg-primary);
     overflow: hidden;
+    z-index: 2;
 }
 
 .intro-slides-container {

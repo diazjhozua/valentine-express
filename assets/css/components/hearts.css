@@ -27,6 +27,17 @@
     z-index: var(--z-bg);
 }
 
+/* === Static Background Roses === */
+
+.rose-bg {
+    pointer-events: none;
+    user-select: none;
+}
+
+.rose-bg svg {
+    filter: drop-shadow(0 2px 4px rgba(214, 51, 132, 0.2));
+}
+
 /* === Floating Heart Styles === */
 
 .floating-heart {
@@ -417,7 +428,8 @@
     .trail-heart,
     .explosion-heart,
     .heart-shimmer,
-    .heart-bounce {
+    .heart-bounce,
+    .floating-rose {
         animation: none !important;
         opacity: 0 !important;
     }
@@ -458,14 +470,15 @@
     }
 }
 
-/* Print styles - hide all hearts */
+/* Print styles - hide all hearts and roses */
 @media print {
     .heart-bg-container,
     .floating-heart,
     .click-heart,
     .bg-heart,
     .heart-trail,
-    .heart-explosion {
+    .heart-explosion,
+    .floating-rose {
         display: none !important;
     }
 }
