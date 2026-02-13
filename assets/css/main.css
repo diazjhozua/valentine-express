@@ -482,6 +482,35 @@ p {
     background: linear-gradient(135deg, var(--color-primary-red), var(--color-primary-red-dark));
 }
 
+/* Theme-specific text colors for intro slides */
+[data-theme="elegant"] .slide-text {
+    color: #b02a5b !important;
+    text-shadow:
+        0 2px 4px rgba(176, 42, 91, 0.3),
+        0 4px 8px rgba(176, 42, 91, 0.2),
+        0 0 20px rgba(176, 42, 91, 0.4) !important;
+
+    /* Override gradient text */
+    background: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+
+[data-theme="playful"] .slide-text {
+    color: #c2185b !important;
+    text-shadow:
+        0 2px 4px rgba(194, 24, 91, 0.3),
+        0 4px 8px rgba(194, 24, 91, 0.2),
+        0 0 20px rgba(194, 24, 91, 0.4) !important;
+
+    /* Override gradient text */
+    background: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+}
+
 /* Theme-specific heart colors */
 [data-theme="elegant"] .floating-heart,
 [data-theme="elegant"] .click-heart {

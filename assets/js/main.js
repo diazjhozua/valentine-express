@@ -98,6 +98,9 @@ class ValentineApp {
             // Set up customization panel
             this.setupCustomizationPanel();
 
+            // Set default theme to elegant
+            this.changeTheme('elegant');
+
             // Handle initial load
             await this.handleInitialLoad();
 
