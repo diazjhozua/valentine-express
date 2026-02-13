@@ -329,33 +329,35 @@ p {
 
 .control-btn {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: var(--space-sm);
+    justify-content: center;
+    width: 50px;
+    height: 50px;
     background: var(--color-surface-white);
-    border: none;
-    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    border-radius: 50%;
     box-shadow: 0 4px 20px var(--shadow-soft);
     backdrop-filter: blur(10px);
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-smooth);
-    min-width: 60px;
 }
 
 .control-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 25px var(--shadow-medium);
+    background: var(--color-primary-red);
+}
+
+.control-btn:hover .btn-icon {
+    filter: invert(1); /* Make icon white on red background */
 }
 
 .control-btn .btn-icon {
     font-size: 1.5rem;
-    margin-bottom: var(--space-xs);
 }
 
 .control-btn .btn-text {
-    font-size: var(--font-size-small);
-    font-weight: 500;
-    color: var(--color-text-secondary);
+    display: none; /* Hide text for icon-only buttons */
 }
 
 /* === Responsive Design === */
@@ -373,11 +375,12 @@ p {
     }
 
     .control-btn {
-        min-width: 50px;
+        width: 45px;
+        height: 45px;
     }
 
-    .control-btn .btn-text {
-        display: none;
+    .control-btn .btn-icon {
+        font-size: 1.3rem;
     }
 }
 
