@@ -101,6 +101,9 @@ class ValentineApp {
             // Set default theme to elegant
             this.changeTheme('elegant');
 
+            // Add static SVG roses
+            this.addStaticRoses();
+
             // Handle initial load
             await this.handleInitialLoad();
 
@@ -613,6 +616,11 @@ class ValentineApp {
         if (this.state.userSettings) {
             this.saveUserSettings();
         }
+
+        // Clean up intervals
+        if (this.roseInterval) {
+            clearInterval(this.roseInterval);
+        }
     }
 
     handleResize() {
@@ -633,6 +641,63 @@ class ValentineApp {
             // Resume animations when tab becomes visible
             this.resumeAnimations();
         }
+    }
+
+    /**
+     * Add static SVG roses to background
+     */
+    addStaticRoses() {
+        const appContainer = document.querySelector('#appContainer');
+        if (!appContainer) return;
+
+        // Remove any existing roses
+        const existing = appContainer.querySelectorAll('.rose-bg');
+        existing.forEach(el => el.remove());
+
+        // Make sure app container has relative positioning
+        appContainer.style.position = 'relative';
+
+        // Add beautiful background roses to app container
+        const roses = [
+            { top: '10%', left: '5%', size: '80px' },
+            { top: '20%', right: '8%', size: '60px' },
+            { bottom: '25%', left: '12%', size: '70px' },
+            { top: '60%', right: '15%', size: '50px' },
+            { bottom: '10%', left: '25%', size: '65px' }
+        ];
+
+        roses.forEach((rose, index) => {
+            const roseDiv = document.createElement('div');
+            roseDiv.className = 'rose-bg';
+            roseDiv.style.cssText = `
+                position: absolute;
+                ${rose.top ? `top: ${rose.top};` : ''}
+                ${rose.bottom ? `bottom: ${rose.bottom};` : ''}
+                ${rose.left ? `left: ${rose.left};` : ''}
+                ${rose.right ? `right: ${rose.right};` : ''}
+                z-index: 0;
+                opacity: 0.15;
+                pointer-events: none;
+            `;
+
+            roseDiv.innerHTML = `
+                <svg width="${rose.size}" height="${rose.size}" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="12" fill="#d63384" opacity="0.8"/>
+                    <circle cx="42" cy="42" r="9" fill="#e685a6" opacity="0.7"/>
+                    <circle cx="58" cy="42" r="9" fill="#e685a6" opacity="0.7"/>
+                    <circle cx="42" cy="58" r="9" fill="#e685a6" opacity="0.7"/>
+                    <circle cx="58" cy="58" r="9" fill="#e685a6" opacity="0.7"/>
+                    <circle cx="50" cy="35" r="7" fill="#f1aeb5" opacity="0.9"/>
+                    <circle cx="35" cy="50" r="6" fill="#f1aeb5" opacity="0.6"/>
+                    <circle cx="65" cy="50" r="6" fill="#f1aeb5" opacity="0.6"/>
+                    <circle cx="50" cy="65" r="6" fill="#f1aeb5" opacity="0.6"/>
+                </svg>
+            `;
+
+            appContainer.appendChild(roseDiv);
+        });
+
+        console.log('🌹 Roses added to app-container!');
     }
 
     /**

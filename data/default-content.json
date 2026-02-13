@@ -1,11 +1,5 @@
 {
-  "messages": [
-    "Hi",
-    "Happy",
-    "Valentine's",
-    "Day",
-    "Babe"
-  ],
+  "messages": ["Hi", "Happy", "Valentine's", "Day", "Babe"],
   "letterContent": [
     "From the moment I first saw you, my world became brighter and more beautiful. Every day with you feels like a gift, and every moment we share together becomes a treasured memory.",
     "Your smile lights up my darkest days, your laugh is the most beautiful melody I've ever heard, and your love gives my life meaning beyond anything I ever imagined possible.",
@@ -14,7 +8,7 @@
     "Happy Valentine's Day, my love. Thank you for being you, and thank you for choosing to share your beautiful life with me."
   ],
   "signatures": [
-    "Your Valentine",
+    "Your Babe",
     "With all my love",
     "Forever yours",
     "Your sweetheart",
@@ -46,9 +40,7 @@
       }
     }
   },
-  "heartTypes": [
-    "❤️", "💕", "💖", "💗", "💝", "💘", "💓", "💌", "💋", "🌹"
-  ],
+  "heartTypes": ["❤️", "💕", "💖", "💗", "💝", "💘", "💓", "💌", "💋", "🌹"],
   "inspirationalQuotes": [
     "Love is not just looking at each other, it's looking in the same direction together.",
     "You are my today and all of my tomorrows.",
