@@ -23,7 +23,7 @@ class LetterDisplay {
             heartsContainer: options.heartsContainer || '#letterHeartsContainer',
 
             // Animation settings
-            entranceDelay: options.entranceDelay || 1000,
+            entranceDelay: options.entranceDelay || 300,
             typewriterSpeed: options.typewriterSpeed || 50,
             paragraphDelay: options.paragraphDelay || 200,
 
@@ -243,9 +243,13 @@ class LetterDisplay {
 
         // Initially hide paragraphs for animation
         if (this.config.enableTypewriter || !this.config.accessibilityMode) {
+            // Add class to ensure content stays hidden
+            this.elements.letterText.parentElement.classList.add('pre-typewriter');
+
             this.elements.paragraphs.forEach(paragraph => {
                 paragraph.style.opacity = '0';
                 paragraph.style.transform = 'translateY(20px)';
+                paragraph.style.visibility = 'hidden';
             });
         }
     }
@@ -318,6 +322,12 @@ class LetterDisplay {
     async animateContent() {
         this.state.typewriterActive = true;
 
+        // Remove pre-typewriter class to allow animations
+        const letterContent = this.elements.letterText.parentElement;
+        if (letterContent) {
+            letterContent.classList.remove('pre-typewriter');
+        }
+
         for (let i = 0; i < this.elements.paragraphs.length; i++) {
             if (!this.state.typewriterActive) break;
 
@@ -350,6 +360,7 @@ class LetterDisplay {
         const words = originalText.split(' ');
 
         // Show paragraph container
+        paragraph.style.visibility = 'visible';
         paragraph.style.opacity = '1';
         paragraph.style.transform = 'translateY(0)';
         paragraph.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
@@ -384,6 +395,12 @@ class LetterDisplay {
         cursor.remove();
         paragraph.textContent = originalText;
 
+        // Ensure full visibility after typing
+        paragraph.style.opacity = '1';
+        paragraph.style.visibility = 'visible';
+        paragraph.style.transform = 'translateY(0)';
+        paragraph.classList.add('typed-complete');
+
         // Add subtle completion effect
         paragraph.style.animation = 'paragraph-complete 0.3s ease';
     }
@@ -394,7 +411,16 @@ class LetterDisplay {
     async animateSignature() {
         if (!this.elements.signature) return;
 
+        // Show signature text first
+        const signatureText = this.elements.container.querySelector('.signature-text');
+        if (signatureText) {
+            signatureText.style.opacity = '1';
+            signatureText.style.visibility = 'visible';
+        }
+
+        // Then show signature name
         this.elements.signature.style.opacity = '1';
+        this.elements.signature.style.visibility = 'visible';
         this.elements.signature.style.transform = 'translateX(0) scale(1)';
         this.elements.signature.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
@@ -419,7 +445,14 @@ class LetterDisplay {
      * Show all content immediately (accessibility mode)
      */
     showAllContent() {
+        // Remove pre-typewriter class
+        const letterContent = this.elements.letterText.parentElement;
+        if (letterContent) {
+            letterContent.classList.remove('pre-typewriter');
+        }
+
         this.elements.paragraphs.forEach(paragraph => {
+            paragraph.style.visibility = 'visible';
             paragraph.style.opacity = '1';
             paragraph.style.transform = 'translateY(0)';
             paragraph.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
@@ -615,17 +648,19 @@ class LetterDisplay {
      */
     createPrintButton() {
         const printBtn = document.createElement('button');
-        printBtn.className = 'print-button btn btn-secondary';
-        printBtn.innerHTML = '🖨️ Print Letter';
+        printBtn.className = 'print-button';
+        printBtn.innerHTML = '🖨️';
         printBtn.setAttribute('aria-label', 'Print this letter');
 
         printBtn.addEventListener('click', () => {
             this.print();
         });
 
-        // Add to container
+        // Add to letter container (positioned absolutely in top-right)
         const letterContainer = this.elements.container.querySelector('.letter-container');
         if (letterContainer) {
+            // Make sure container has relative positioning for absolute button
+            letterContainer.style.position = 'relative';
             letterContainer.appendChild(printBtn);
             this.elements.printButton = printBtn;
         }

@@ -16,7 +16,7 @@ class IntroSlides {
         // Default configuration
         this.config = {
             messages: options.messages || ['Hi', 'Happy', "Valentine's", 'Day', 'Babe'],
-            slideDelay: options.slideDelay || 1200, // Time to show each slide
+            slideDelay: options.slideDelay || 800, // Time to show each slide
             transitionDuration: options.transitionDuration || 800, // Animation duration
             autoStart: options.autoStart !== false, // Auto-start by default
             container: options.container || '#introSlidesSection',
@@ -249,9 +249,9 @@ class IntroSlides {
             }
         }
 
-        // Final pause before completion
+        // Brief pause before completion
         if (this.state.isPlaying && !this.state.isPaused) {
-            await this.wait(this.config.slideDelay);
+            await this.wait(400); // Shorter final pause
             this.complete();
         }
     }
