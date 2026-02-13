@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A romantic Valentine's Day letter for someone special">
+    <meta name="theme-color" content="#e74c3c">
+    <title>Valentine's Day Letter</title>
+
+    <!-- Preload critical fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Critical CSS will be inlined here for performance -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components/intro-slides.css">
+    <link rel="stylesheet" href="assets/css/components/letter-display.css">
+    <link rel="stylesheet" href="assets/css/components/hearts.css">
+    <link rel="stylesheet" href="assets/css/layouts/responsive.css">
+    <link rel="stylesheet" href="assets/css/layouts/animations.css">
+    <link rel="stylesheet" href="assets/css/themes/default.css">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Heart animation container for background effects -->
+    <div class="heart-bg-container" aria-hidden="true" id="heartBgContainer"></div>
+
+    <!-- Main application container -->
+    <div class="app-container" id="appContainer">
+
+        <!-- Intro Slides Section -->
+        <section class="intro-slides-section" id="introSlidesSection" aria-label="Valentine's Day greeting">
+            <div class="intro-slides-container" role="presentation">
+                <div class="slide" id="slide-0" data-message="Hi">
+                    <h1 class="slide-text" aria-live="polite">Hi</h1>
+                </div>
+                <div class="slide" id="slide-1" data-message="Happy">
+                    <h1 class="slide-text" aria-live="polite">Happy</h1>
+                </div>
+                <div class="slide" id="slide-2" data-message="Valentine's">
+                    <h1 class="slide-text" aria-live="polite">Valentine's</h1>
+                </div>
+                <div class="slide" id="slide-3" data-message="Day">
+                    <h1 class="slide-text" aria-live="polite">Day</h1>
+                </div>
+                <div class="slide" id="slide-4" data-message="Babe">
+                    <h1 class="slide-text" aria-live="polite">Babe</h1>
+                </div>
+            </div>
+
+            <!-- Progress indicator -->
+            <div class="slide-progress" aria-label="Greeting progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </section>
+
+        <!-- Letter Display Section -->
+        <main class="letter-section hidden" id="letterSection" role="main" aria-labelledby="letter-title">
+            <div class="letter-container">
+                <header class="letter-header">
+                    <h1 id="letter-title" class="letter-title">My Dearest Valentine</h1>
+                    <div class="letter-date">
+                        <time datetime="2026-02-14" id="letterDate">February 14, 2026</time>
+                    </div>
+                </header>
+
+                <article class="letter-content" id="letterContent" tabindex="0" role="article">
+                    <div class="letter-text" id="letterText">
+                        <!-- Default letter content - will be customizable -->
+                        <p>From the moment I first saw you, my world became brighter and more beautiful. Every day with you feels like a gift, and every moment we share together becomes a treasured memory.</p>
+
+                        <p>Your smile lights up my darkest days, your laugh is the most beautiful melody I've ever heard, and your love gives my life meaning beyond anything I ever imagined possible.</p>
+
+                        <p>On this Valentine's Day, I want you to know that you are not just my love, but my best friend, my partner in all of life's adventures, and the person who makes me want to be better every single day.</p>
+
+                        <p>I promise to cherish you, support you, and love you not just today, but for all the days of my life. You are my everything, my forever, my heart.</p>
+
+                        <p>Happy Valentine's Day, my love. Thank you for being you, and thank you for choosing to share your beautiful life with me.</p>
+                    </div>
+
+                    <footer class="letter-signature">
+                        <p class="signature-text">With all my love,</p>
+                        <p class="signature-name" id="signatureName">Your Valentine</p>
+                    </footer>
+                </article>
+
+                <!-- Interactive heart spawning area -->
+                <div class="letter-hearts-container" id="letterHeartsContainer" aria-hidden="true"></div>
+            </div>
+        </main>
+
+        <!-- Customization Panel (Initially hidden) -->
+        <aside class="customization-panel hidden" id="customizationPanel" role="complementary" aria-labelledby="customization-title">
+            <div class="panel-header">
+                <h2 id="customization-title">Customize Your Message</h2>
+                <button class="panel-close" id="panelCloseBtn" aria-label="Close customization panel">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="panel-content">
+                <div class="customization-section">
+                    <h3>Intro Messages</h3>
+                    <div class="message-inputs">
+                        <input type="text" id="message-0" class="message-input" value="Hi" maxlength="20" aria-label="First greeting message">
+                        <input type="text" id="message-1" class="message-input" value="Happy" maxlength="20" aria-label="Second greeting message">
+                        <input type="text" id="message-2" class="message-input" value="Valentine's" maxlength="20" aria-label="Third greeting message">
+                        <input type="text" id="message-3" class="message-input" value="Day" maxlength="20" aria-label="Fourth greeting message">
+                        <input type="text" id="message-4" class="message-input" value="Babe" maxlength="20" aria-label="Fifth greeting message">
+                    </div>
+                </div>
+
+                <div class="customization-section">
+                    <h3>Letter Content</h3>
+                    <textarea id="letterContentInput" class="letter-textarea" rows="10" aria-label="Letter content"></textarea>
+                </div>
+
+                <div class="customization-section">
+                    <h3>Signature</h3>
+                    <input type="text" id="signatureInput" class="signature-input" value="Your Valentine" maxlength="50" aria-label="Letter signature">
+                </div>
+
+                <div class="customization-section">
+                    <h3>Theme</h3>
+                    <div class="theme-options">
+                        <button class="theme-btn active" data-theme="default" aria-label="Default romantic theme">Classic</button>
+                        <button class="theme-btn" data-theme="elegant" aria-label="Elegant theme">Elegant</button>
+                        <button class="theme-btn" data-theme="playful" aria-label="Playful theme">Playful</button>
+                    </div>
+                </div>
+
+                <div class="panel-actions">
+                    <button id="previewBtn" class="btn btn-secondary">Preview Changes</button>
+                    <button id="saveBtn" class="btn btn-primary">Save & Apply</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Control buttons -->
+        <div class="app-controls" id="appControls">
+            <button id="customizeBtn" class="control-btn" aria-label="Customize messages and letter">
+                <span class="btn-icon">⚙️</span>
+                <span class="btn-text">Customize</span>
+            </button>
+            <button id="restartBtn" class="control-btn hidden" aria-label="Restart from beginning">
+                <span class="btn-icon">🔄</span>
+                <span class="btn-text">Restart</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading indicator -->
+    <div class="loading-overlay hidden" id="loadingOverlay" role="status" aria-live="polite">
+        <div class="loading-content">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <p class="loading-text">Preparing your Valentine's message...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript modules -->
+    <script type="module" src="assets/js/main.js"></script>
+
+    <!-- Fallback for browsers without module support -->
+    <script nomodule>
+        alert('This Valentine\'s Day application requires a modern browser with JavaScript module support. Please update your browser for the best experience.');
+    </script>
+</body>
+</html>
