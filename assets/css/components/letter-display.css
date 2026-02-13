@@ -1,0 +1,510 @@
+/* ============================================================================
+   Letter Display Component - Romantic Letter Presentation
+   Beautiful typography with typewriter effects and interactive elements
+   ============================================================================ */
+
+/* === Main Letter Section === */
+
+.letter-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) var(--space-md);
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 192, 203, 0.3) 0%, transparent 50%),
+        var(--color-bg-primary);
+
+    /* Initial hidden state for entrance animation */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all var(--duration-extra-slow) var(--ease-romantic);
+}
+
+.letter-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === Letter Container === */
+
+.letter-container {
+    position: relative;
+    max-width: var(--letter-max-width);
+    width: 100%;
+    background: var(--color-surface-white);
+    border-radius: var(--border-radius-xl);
+    box-shadow:
+        0 20px 60px rgba(231, 76, 60, 0.15),
+        0 8px 25px rgba(231, 76, 60, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(5deg);
+    transition: transform var(--duration-slow) var(--ease-romantic);
+
+    /* Paper texture effect */
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 24px,
+            rgba(231, 76, 60, 0.03) 25px,
+            rgba(231, 76, 60, 0.03) 26px
+        ),
+        linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+}
+
+.letter-container:hover {
+    transform: perspective(1000px) rotateX(0deg) scale(1.02);
+    box-shadow:
+        0 25px 80px rgba(231, 76, 60, 0.2),
+        0 10px 30px rgba(231, 76, 60, 0.15);
+}
+
+/* === Letter Header === */
+
+.letter-header {
+    padding: var(--space-xl) var(--space-lg) var(--space-md);
+    text-align: center;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.1);
+    position: relative;
+}
+
+.letter-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--color-primary-red) 20%,
+        var(--color-secondary-pink) 50%,
+        var(--color-primary-red) 80%,
+        transparent 100%
+    );
+}
+
+.letter-title {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: var(--color-text-romantic);
+    margin: 0 0 var(--space-sm) 0;
+    text-align: center;
+    opacity: 0;
+    animation: titleReveal 1s var(--ease-romantic) 0.5s forwards;
+}
+
+.letter-date {
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    color: var(--color-text-light);
+    font-style: italic;
+    opacity: 0;
+    animation: titleReveal 1s var(--ease-romantic) 0.8s forwards;
+}
+
+/* === Letter Content === */
+
+.letter-content {
+    padding: var(--space-lg);
+    position: relative;
+    scroll-behavior: smooth;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Custom scrollbar styling */
+.letter-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter-content::-webkit-scrollbar-track {
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 4px;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background: var(--color-primary-red);
+    border-radius: 4px;
+}
+
+.letter-content::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-red-dark);
+}
+
+.letter-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-primary);
+}
+
+.letter-text p {
+    margin-bottom: var(--space-md);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: paragraphReveal 0.8s var(--ease-romantic) forwards;
+    position: relative;
+    padding-left: var(--space-md);
+}
+
+/* Stagger the paragraph animations */
+.letter-text p:nth-child(1) { animation-delay: 1s; }
+.letter-text p:nth-child(2) { animation-delay: 1.2s; }
+.letter-text p:nth-child(3) { animation-delay: 1.4s; }
+.letter-text p:nth-child(4) { animation-delay: 1.6s; }
+.letter-text p:nth-child(5) { animation-delay: 1.8s; }
+
+/* Decorative quote marks */
+.letter-text p:first-child::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-secondary-pink);
+    line-height: 1;
+}
+
+.letter-text p:last-child::after {
+    content: '"';
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-secondary-pink);
+    line-height: 1;
+    margin-left: 5px;
+}
+
+/* === Letter Signature === */
+
+.letter-signature {
+    padding: var(--space-md) var(--space-lg) var(--space-xl);
+    text-align: right;
+    border-top: 1px solid rgba(231, 76, 60, 0.1);
+    position: relative;
+}
+
+.signature-text {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin: 0 0 var(--space-sm) 0;
+    opacity: 0;
+    animation: paragraphReveal 0.8s var(--ease-romantic) 2.2s forwards;
+}
+
+.signature-name {
+    font-family: var(--font-display);
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    color: var(--color-text-romantic);
+    margin: 0;
+    opacity: 0;
+    animation: signatureReveal 1.2s var(--ease-romantic) 2.5s forwards;
+    position: relative;
+}
+
+.signature-name::after {
+    content: '💕';
+    margin-left: var(--space-sm);
+    opacity: 0;
+    animation: heartPulse 2s ease-in-out 3.5s infinite;
+}
+
+/* === Interactive Heart Container === */
+
+.letter-hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: var(--border-radius-xl);
+    z-index: 1;
+}
+
+.letter-heart {
+    position: absolute;
+    color: var(--color-primary-red);
+    font-size: var(--heart-size);
+    pointer-events: none;
+    animation: letterHeartFloat 2s ease-out forwards;
+    z-index: 2;
+}
+
+/* === Typewriter Effect === */
+
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--color-primary-red);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* === Keyframe Animations === */
+
+@keyframes titleReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes paragraphReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes signatureReveal {
+    0% {
+        opacity: 0;
+        transform: translateX(50px) scale(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(0) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes heartPulse {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes letterHeartFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0) rotate(0deg);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1) rotate(10deg);
+    }
+    85% {
+        opacity: 0.8;
+        transform: translateY(-80px) scale(1.2) rotate(-10deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.8) rotate(15deg);
+    }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--color-primary-red); }
+}
+
+/* === Hover Effects === */
+
+.letter-text p:hover {
+    color: var(--color-text-romantic);
+    cursor: pointer;
+    transform: translateX(5px);
+    transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.letter-container:hover .letter-hearts-container::before {
+    content: '💝';
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 2rem;
+    animation: letterHeartFloat 2s ease-out forwards;
+}
+
+/* === Responsive Design === */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .letter-section {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .letter-container {
+        max-width: 90%;
+    }
+
+    .letter-content {
+        max-height: 55vh;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .letter-section {
+        padding: var(--space-md) var(--space-sm);
+        min-height: 100vh;
+    }
+
+    .letter-container {
+        max-width: 100%;
+        margin: 0;
+        border-radius: var(--border-radius-md);
+        transform: none;
+    }
+
+    .letter-container:hover {
+        transform: none;
+    }
+
+    .letter-header {
+        padding: var(--space-lg) var(--space-md) var(--space-sm);
+    }
+
+    .letter-content {
+        padding: var(--space-md);
+        max-height: 50vh;
+    }
+
+    .letter-text p {
+        padding-left: var(--space-sm);
+    }
+
+    .letter-text p:first-child::before {
+        font-size: 2rem;
+        top: -5px;
+    }
+
+    .letter-text p:last-child::after {
+        font-size: 2rem;
+    }
+
+    .letter-signature {
+        padding: var(--space-sm) var(--space-md) var(--space-lg);
+    }
+}
+
+/* Very small mobile adjustments */
+@media (max-width: 480px) {
+    .letter-section {
+        padding: var(--space-sm);
+    }
+
+    .letter-header {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .letter-content {
+        padding: var(--space-sm);
+        max-height: 45vh;
+    }
+
+    .letter-title {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+    }
+
+    .signature-name {
+        font-size: clamp(1rem, 6vw, 1.5rem);
+    }
+}
+
+/* === Accessibility and Reduced Motion === */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .letter-section,
+    .letter-container,
+    .letter-title,
+    .letter-date,
+    .letter-text p,
+    .signature-text,
+    .signature-name {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: opacity var(--duration-fast) ease !important;
+    }
+
+    .letter-container:hover {
+        transform: none !important;
+    }
+
+    .signature-name::after {
+        animation: none !important;
+        opacity: 0.7 !important;
+    }
+
+    .letter-text p:hover {
+        transform: none !important;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    .letter-container {
+        background: #ffffff;
+        border: 2px solid var(--color-primary-red);
+        box-shadow: none;
+    }
+
+    .letter-title {
+        color: var(--color-primary-red);
+    }
+
+    .letter-text {
+        color: #000000;
+    }
+
+    .signature-name {
+        color: var(--color-primary-red);
+    }
+}
+
+/* Print styles */
+@media print {
+    .letter-section {
+        background: white;
+        padding: 0;
+        min-height: auto;
+    }
+
+    .letter-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: white;
+        transform: none;
+        max-width: 100%;
+    }
+
+    .letter-hearts-container {
+        display: none;
+    }
+}

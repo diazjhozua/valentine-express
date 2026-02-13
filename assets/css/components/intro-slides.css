@@ -1,0 +1,404 @@
+/* ============================================================================
+   Intro Slides Component - Valentine's Day Messages
+   Smooth sequential slide animations with romantic styling
+   ============================================================================ */
+
+/* === Main Intro Slides Container === */
+
+.intro-slides-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-primary);
+    overflow: hidden;
+}
+
+.intro-slides-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* === Individual Slide Styling === */
+
+.slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+    transition: all var(--duration-slow) var(--ease-romantic);
+
+    /* Initial state - prepared for animation */
+    transform: translate(-50%, -50%) scale(0.5) rotateY(-90deg);
+    filter: blur(10px);
+}
+
+/* Active slide state */
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+    filter: blur(0px);
+    z-index: 2;
+    animation: slideEnter var(--duration-slow) var(--ease-romantic) forwards;
+}
+
+/* Exiting slide state */
+.slide.exiting {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1) rotateY(90deg);
+    filter: blur(5px);
+    z-index: 0;
+    animation: slideExit var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+/* === Slide Text Styling === */
+
+.slide-text {
+    font-family: var(--font-display);
+    font-size: var(--font-size-mega);
+    font-weight: 700;
+    color: var(--color-text-white);
+    text-shadow:
+        0 2px 4px var(--shadow-medium),
+        0 4px 8px var(--shadow-soft),
+        0 0 20px rgba(231, 76, 60, 0.3);
+    margin: 0;
+    line-height: var(--line-height-tight);
+    letter-spacing: 0.02em;
+
+    /* Text gradient effect */
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #ffe5e5 30%,
+        #ffffff 70%,
+        #fce4e6 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: textShimmer 3s ease-in-out infinite alternate;
+}
+
+/* === Keyframe Animations === */
+
+@keyframes slideEnter {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3) rotateY(-90deg);
+        filter: blur(15px);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.05) rotateY(0deg);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+        filter: blur(0px);
+    }
+}
+
+@keyframes slideExit {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+        filter: blur(0px);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.95) rotateY(45deg);
+        filter: blur(3px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7) rotateY(90deg);
+        filter: blur(8px);
+    }
+}
+
+@keyframes textShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* === Slide Progress Indicator === */
+
+.slide-progress {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent-white), var(--color-secondary-pink-light));
+    border-radius: 2px;
+    width: 0%;
+    transition: width var(--duration-normal) var(--ease-smooth);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Progress states */
+.progress-bar.step-1 { width: 20%; }
+.progress-bar.step-2 { width: 40%; }
+.progress-bar.step-3 { width: 60%; }
+.progress-bar.step-4 { width: 80%; }
+.progress-bar.step-5 { width: 100%; }
+
+/* === Individual Slide Customizations === */
+
+/* First slide - "Hi" */
+#slide-0 .slide-text {
+    animation-delay: 0.2s;
+}
+
+/* Second slide - "Happy" */
+#slide-1 .slide-text {
+    animation-delay: 0.3s;
+    color: var(--color-secondary-pink-light);
+}
+
+/* Third slide - "Valentine's" */
+#slide-2 .slide-text {
+    animation-delay: 0.4s;
+    font-size: clamp(2.5rem, 10vw, 6rem); /* Slightly smaller for longer text */
+}
+
+/* Fourth slide - "Day" */
+#slide-3 .slide-text {
+    animation-delay: 0.5s;
+}
+
+/* Fifth slide - "Babe" */
+#slide-4 .slide-text {
+    animation-delay: 0.6s;
+    color: var(--color-accent-rose);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* === Decorative Elements === */
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(231, 76, 60, 0.1) 0%,
+        transparent 50%
+    );
+    border-radius: 50%;
+    animation: decorativeRotate 20s linear infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--duration-slow) var(--ease-smooth);
+}
+
+.slide.active::before {
+    opacity: 1;
+}
+
+@keyframes decorativeRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* === Heart Particle Effects for Slides === */
+
+.slide-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.slide-heart {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(1rem, 3vw, 2rem);
+    animation: floatHeart 3s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes floatHeart {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0);
+    }
+    10% {
+        transform: translateY(-20px) scale(1);
+    }
+    90% {
+        opacity: 0.7;
+        transform: translateY(-100px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(0.8);
+    }
+}
+
+/* === Responsive Design === */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .intro-slides-container {
+        height: 75vh;
+    }
+
+    .slide {
+        width: 95%;
+    }
+
+    .slide-progress {
+        width: 150px;
+        bottom: var(--space-lg);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .intro-slides-section {
+        padding: var(--space-sm);
+    }
+
+    .intro-slides-container {
+        height: 70vh;
+    }
+
+    .slide-text {
+        font-size: clamp(2rem, 15vw, 4rem);
+        text-shadow:
+            0 1px 2px var(--shadow-medium),
+            0 2px 4px var(--shadow-soft);
+    }
+
+    .slide-progress {
+        width: 120px;
+        bottom: var(--space-md);
+    }
+}
+
+/* Very small mobile adjustments */
+@media (max-width: 480px) {
+    .slide {
+        width: 100%;
+        padding: var(--space-sm);
+    }
+
+    .slide-text {
+        font-size: clamp(1.8rem, 12vw, 3rem);
+    }
+
+    .slide-progress {
+        width: 100px;
+    }
+}
+
+/* === Accessibility and Reduced Motion === */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .slide {
+        transition: opacity var(--duration-fast) ease;
+        animation: none !important;
+    }
+
+    .slide.active {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotateY(0deg);
+        filter: blur(0px);
+        animation: none !important;
+    }
+
+    .slide.exiting {
+        opacity: 0;
+        animation: none !important;
+    }
+
+    .slide-text {
+        animation: none !important;
+        background: var(--color-accent-white);
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        color: var(--color-text-white);
+    }
+
+    .slide::before {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+
+    .progress-bar {
+        transition: width var(--duration-fast) ease;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    .slide-text {
+        color: var(--color-accent-white);
+        text-shadow: 2px 2px 0 var(--color-text-primary);
+        background: none;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+    }
+
+    .progress-bar {
+        background: var(--color-accent-white);
+    }
+}

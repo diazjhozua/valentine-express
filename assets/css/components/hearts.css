@@ -1,0 +1,471 @@
+/* ============================================================================
+   Heart Animations Component - Interactive Romantic Elements
+   Beautiful floating hearts that respond to user interactions
+   ============================================================================ */
+
+/* === Heart Animation Variables === */
+
+:root {
+    --heart-primary: '❤️';
+    --heart-pink: '💖';
+    --heart-sparkle: '💕';
+    --heart-arrow: '💘';
+    --heart-ribbon: '💝';
+    --heart-kiss: '💋';
+}
+
+/* === Background Heart Container === */
+
+.heart-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: var(--z-bg);
+}
+
+/* === Floating Heart Styles === */
+
+.floating-heart {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    font-size: var(--heart-size);
+    z-index: 1;
+    animation: floatUp 4s ease-out forwards;
+    color: var(--color-primary-red);
+    filter: drop-shadow(0 2px 4px rgba(231, 76, 60, 0.3));
+}
+
+/* Heart variations */
+.floating-heart.pink {
+    color: var(--color-secondary-pink-dark);
+}
+
+.floating-heart.sparkle {
+    animation: floatUpSparkle 4s ease-out forwards;
+    filter: drop-shadow(0 2px 8px rgba(255, 182, 193, 0.6));
+}
+
+.floating-heart.large {
+    font-size: calc(var(--heart-size) * 1.5);
+    animation: floatUpLarge 5s ease-out forwards;
+}
+
+.floating-heart.small {
+    font-size: calc(var(--heart-size) * 0.7);
+    animation: floatUpSmall 3s ease-out forwards;
+}
+
+/* === Click-triggered Hearts === */
+
+.click-heart {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    z-index: 100;
+    animation: clickHeartBurst 1.5s ease-out forwards;
+    font-size: calc(var(--heart-size) * 1.2);
+    color: var(--color-primary-red);
+    filter: drop-shadow(0 0 10px rgba(231, 76, 60, 0.5));
+}
+
+/* === Continuous Background Hearts === */
+
+.bg-heart {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.3;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    animation: backgroundFloat 8s linear infinite;
+    color: var(--color-secondary-pink);
+}
+
+/* Stagger background heart animations */
+.bg-heart:nth-child(1) { animation-delay: 0s; left: 10%; }
+.bg-heart:nth-child(2) { animation-delay: 1.5s; left: 20%; }
+.bg-heart:nth-child(3) { animation-delay: 3s; left: 30%; }
+.bg-heart:nth-child(4) { animation-delay: 4.5s; left: 40%; }
+.bg-heart:nth-child(5) { animation-delay: 6s; left: 50%; }
+.bg-heart:nth-child(6) { animation-delay: 7.5s; left: 60%; }
+.bg-heart:nth-child(7) { animation-delay: 9s; left: 70%; }
+.bg-heart:nth-child(8) { animation-delay: 10.5s; left: 80%; }
+.bg-heart:nth-child(9) { animation-delay: 12s; left: 90%; }
+
+/* === Keyframe Animations === */
+
+/* Main floating animation */
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1) rotate(10deg);
+    }
+    90% {
+        opacity: 0.8;
+        transform: translateY(-150px) scale(1.1) rotate(-15deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(0.8) rotate(20deg);
+    }
+}
+
+/* Sparkle heart variant */
+@keyframes floatUpSparkle {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0) rotate(0deg);
+        filter: drop-shadow(0 2px 8px rgba(255, 182, 193, 0.6)) brightness(1);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1) rotate(10deg);
+        filter: drop-shadow(0 2px 8px rgba(255, 182, 193, 0.6)) brightness(1.2);
+    }
+    50% {
+        filter: drop-shadow(0 2px 12px rgba(255, 182, 193, 0.8)) brightness(1.4);
+    }
+    90% {
+        opacity: 0.8;
+        transform: translateY(-150px) scale(1.1) rotate(-15deg);
+        filter: drop-shadow(0 2px 8px rgba(255, 182, 193, 0.4)) brightness(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(0.8) rotate(20deg);
+        filter: drop-shadow(0 2px 8px rgba(255, 182, 193, 0.2)) brightness(0.8);
+    }
+}
+
+/* Large heart variant */
+@keyframes floatUpLarge {
+    0% {
+        opacity: 0.8;
+        transform: translateY(0) scale(0) rotate(0deg);
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1) rotate(5deg);
+    }
+    95% {
+        opacity: 0.6;
+        transform: translateY(-180px) scale(1.2) rotate(-20deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-250px) scale(0.9) rotate(25deg);
+    }
+}
+
+/* Small heart variant */
+@keyframes floatUpSmall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0) rotate(0deg);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(-30px) scale(1) rotate(15deg);
+    }
+    85% {
+        opacity: 0.9;
+        transform: translateY(-120px) scale(1.05) rotate(-10deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-160px) scale(0.7) rotate(30deg);
+    }
+}
+
+/* Click burst animation */
+@keyframes clickHeartBurst {
+    0% {
+        opacity: 1;
+        transform: scale(0) rotate(0deg);
+    }
+    15% {
+        opacity: 1;
+        transform: scale(1.3) rotate(10deg);
+    }
+    30% {
+        opacity: 0.9;
+        transform: scale(1.1) rotate(-5deg);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(1.4) rotate(15deg) translateY(-30px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) rotate(25deg) translateY(-60px);
+    }
+}
+
+/* Background floating animation */
+@keyframes backgroundFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) scale(0.8) rotate(0deg);
+    }
+    10% {
+        opacity: 0.3;
+        transform: translateY(90vh) scale(1) rotate(10deg);
+    }
+    90% {
+        opacity: 0.1;
+        transform: translateY(-10vh) scale(1.1) rotate(-20deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20vh) scale(0.9) rotate(30deg);
+    }
+}
+
+/* Pulsing animation for special moments */
+@keyframes heartPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* Spinning animation for celebration */
+@keyframes heartSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(90deg) scale(1.1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    75% {
+        transform: rotate(270deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* === Heart Patterns and Trails === */
+
+.heart-trail {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+.heart-trail .trail-heart {
+    position: absolute;
+    font-size: calc(var(--heart-size) * 0.6);
+    color: var(--color-secondary-pink-light);
+    opacity: 0.6;
+    animation: trailFade 2s ease-out forwards;
+}
+
+.heart-trail .trail-heart:nth-child(1) { animation-delay: 0s; }
+.heart-trail .trail-heart:nth-child(2) { animation-delay: 0.1s; }
+.heart-trail .trail-heart:nth-child(3) { animation-delay: 0.2s; }
+.heart-trail .trail-heart:nth-child(4) { animation-delay: 0.3s; }
+.heart-trail .trail-heart:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes trailFade {
+    0% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* === Heart Explosions for Special Events === */
+
+.heart-explosion {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+.explosion-heart {
+    position: absolute;
+    font-size: var(--heart-size);
+    color: var(--color-primary-red);
+    animation: explode 2s ease-out forwards;
+}
+
+/* Create multiple explosion directions */
+.explosion-heart:nth-child(1) { animation: explode 2s ease-out forwards, explode-1 2s ease-out forwards; }
+.explosion-heart:nth-child(2) { animation: explode 2s ease-out forwards, explode-2 2s ease-out forwards; }
+.explosion-heart:nth-child(3) { animation: explode 2s ease-out forwards, explode-3 2s ease-out forwards; }
+.explosion-heart:nth-child(4) { animation: explode 2s ease-out forwards, explode-4 2s ease-out forwards; }
+.explosion-heart:nth-child(5) { animation: explode 2s ease-out forwards, explode-5 2s ease-out forwards; }
+.explosion-heart:nth-child(6) { animation: explode 2s ease-out forwards, explode-6 2s ease-out forwards; }
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes explode-1 { 0% { transform: translate(0, 0); } 100% { transform: translate(-40px, -60px); } }
+@keyframes explode-2 { 0% { transform: translate(0, 0); } 100% { transform: translate(40px, -60px); } }
+@keyframes explode-3 { 0% { transform: translate(0, 0); } 100% { transform: translate(-60px, 0); } }
+@keyframes explode-4 { 0% { transform: translate(0, 0); } 100% { transform: translate(60px, 0); } }
+@keyframes explode-5 { 0% { transform: translate(0, 0); } 100% { transform: translate(-40px, 40px); } }
+@keyframes explode-6 { 0% { transform: translate(0, 0); } 100% { transform: translate(40px, 40px); } }
+
+/* === Special Heart Effects === */
+
+.heart-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        filter: brightness(1) saturate(1);
+    }
+    50% {
+        filter: brightness(1.3) saturate(1.2);
+    }
+}
+
+.heart-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* === Responsive Adjustments === */
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .floating-heart {
+        font-size: clamp(16px, 4vw, 24px);
+    }
+
+    .floating-heart.large {
+        font-size: clamp(20px, 5vw, 30px);
+    }
+
+    .floating-heart.small {
+        font-size: clamp(12px, 3vw, 18px);
+    }
+
+    .click-heart {
+        font-size: clamp(18px, 4.5vw, 28px);
+    }
+
+    .bg-heart {
+        font-size: clamp(12px, 2.5vw, 16px);
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .floating-heart {
+        font-size: clamp(14px, 3vw, 20px);
+    }
+
+    /* Reduce number of background hearts on small screens */
+    .bg-heart:nth-child(n+6) {
+        display: none;
+    }
+}
+
+/* === Accessibility and Performance === */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .floating-heart,
+    .click-heart,
+    .bg-heart,
+    .trail-heart,
+    .explosion-heart,
+    .heart-shimmer,
+    .heart-bounce {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+
+    /* Keep only static hearts for visual appeal */
+    .floating-heart.static,
+    .click-heart.static {
+        animation: none !important;
+        opacity: 0.5 !important;
+        position: static !important;
+        transform: none !important;
+    }
+}
+
+/* Reduce animations for better performance on lower-end devices */
+@media (max-width: 480px) and (max-resolution: 1.5dppx) {
+    .bg-heart {
+        animation-duration: 12s; /* Slower animation for better performance */
+    }
+
+    .floating-heart {
+        animation-duration: 5s;
+    }
+
+    /* Limit number of simultaneous hearts */
+    .floating-heart:nth-child(n+4) {
+        display: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .floating-heart,
+    .click-heart,
+    .bg-heart {
+        color: #d00 !important;
+        filter: none !important;
+    }
+}
+
+/* Print styles - hide all hearts */
+@media print {
+    .heart-bg-container,
+    .floating-heart,
+    .click-heart,
+    .bg-heart,
+    .heart-trail,
+    .heart-explosion {
+        display: none !important;
+    }
+}
