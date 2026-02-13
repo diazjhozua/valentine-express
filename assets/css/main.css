@@ -316,6 +316,37 @@ p {
     color: var(--color-text-white);
 }
 
+/* === Theme Selection Buttons === */
+
+.theme-options {
+    display: flex;
+    gap: var(--space-sm);
+    margin: var(--space-sm) 0;
+}
+
+.theme-btn {
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid var(--color-primary-red);
+    background: transparent;
+    color: var(--color-primary-red);
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-smooth);
+    font-family: var(--font-body);
+}
+
+.theme-btn:hover {
+    background: var(--color-primary-red);
+    color: var(--color-accent-white);
+}
+
+.theme-btn.active {
+    background: var(--color-primary-red);
+    color: var(--color-accent-white);
+    box-shadow: 0 2px 8px var(--shadow-medium);
+}
+
 /* === App Controls === */
 
 .app-controls {
@@ -406,6 +437,60 @@ p {
         --color-text-primary: #000;
         --color-bg-primary: #fff;
     }
+}
+
+/* === Theme Variations === */
+
+/* Elegant Theme */
+[data-theme="elegant"] {
+    --color-primary-red: #d63384;
+    --color-primary-red-light: #e685a6;
+    --color-primary-red-dark: #b02a5b;
+
+    --color-secondary-pink: #f7e6ec;
+    --color-secondary-pink-light: #faf0f4;
+    --color-secondary-pink-dark: #f1c6d7;
+
+    --color-accent-rose: #fef7f9;
+    --color-text-romantic: #b02a5b;
+
+    --color-bg-primary: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+}
+
+/* Playful Theme */
+[data-theme="playful"] {
+    --color-primary-red: #e91e63;
+    --color-primary-red-light: #f06292;
+    --color-primary-red-dark: #c2185b;
+
+    --color-secondary-pink: #fce4ec;
+    --color-secondary-pink-light: #fff8fa;
+    --color-secondary-pink-dark: #f8bbd9;
+
+    --color-accent-rose: #fff8fa;
+    --color-text-romantic: #c2185b;
+
+    --color-bg-primary: linear-gradient(135deg, #fff1f3 0%, #ffeef5 100%);
+}
+
+/* Theme-specific button styles */
+[data-theme="elegant"] .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary-red), var(--color-primary-red-dark));
+}
+
+[data-theme="playful"] .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary-red), var(--color-primary-red-dark));
+}
+
+/* Theme-specific heart colors */
+[data-theme="elegant"] .floating-heart,
+[data-theme="elegant"] .click-heart {
+    color: #d63384;
+}
+
+[data-theme="playful"] .floating-heart,
+[data-theme="playful"] .click-heart {
+    color: #e91e63;
 }
 
 /* Dark mode preference support (for future enhancement) */
