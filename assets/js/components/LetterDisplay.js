@@ -292,12 +292,8 @@ class LetterDisplay {
             this.state.isVisible = true;
             this.state.isAnimating = false;
 
-            // Start content animation
-            if (this.config.enableTypewriter && !this.config.accessibilityMode) {
-                await this.animateContent();
-            } else {
-                this.showAllContent();
-            }
+            // Show content immediately (no typewriter animation)
+            this.showAllContent();
 
             // Fire show event
             if (this.eventHandlers.onShow) {
@@ -442,7 +438,7 @@ class LetterDisplay {
     }
 
     /**
-     * Show all content immediately (accessibility mode)
+     * Show all content immediately (no typewriter animation)
      */
     showAllContent() {
         // Remove pre-typewriter class
@@ -451,15 +447,25 @@ class LetterDisplay {
             letterContent.classList.remove('pre-typewriter');
         }
 
+        // Show all paragraphs immediately
         this.elements.paragraphs.forEach(paragraph => {
             paragraph.style.visibility = 'visible';
             paragraph.style.opacity = '1';
             paragraph.style.transform = 'translateY(0)';
-            paragraph.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+            paragraph.classList.add('typed-complete');
+            paragraph.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         });
+
+        // Show signature immediately
+        const signatureText = this.elements.container.querySelector('.signature-text');
+        if (signatureText) {
+            signatureText.style.opacity = '1';
+            signatureText.style.visibility = 'visible';
+        }
 
         if (this.elements.signature) {
             this.elements.signature.style.opacity = '1';
+            this.elements.signature.style.visibility = 'visible';
             this.elements.signature.style.transform = 'translateX(0) scale(1)';
         }
 
