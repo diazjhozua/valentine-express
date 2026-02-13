@@ -1,0 +1,93 @@
+{
+  "messages": [
+    "Hi",
+    "Happy",
+    "Valentine's",
+    "Day",
+    "Babe"
+  ],
+  "letterContent": [
+    "From the moment I first saw you, my world became brighter and more beautiful. Every day with you feels like a gift, and every moment we share together becomes a treasured memory.",
+    "Your smile lights up my darkest days, your laugh is the most beautiful melody I've ever heard, and your love gives my life meaning beyond anything I ever imagined possible.",
+    "On this Valentine's Day, I want you to know that you are not just my love, but my best friend, my partner in all of life's adventures, and the person who makes me want to be better every single day.",
+    "I promise to cherish you, support you, and love you not just today, but for all the days of my life. You are my everything, my forever, my heart.",
+    "Happy Valentine's Day, my love. Thank you for being you, and thank you for choosing to share your beautiful life with me."
+  ],
+  "signatures": [
+    "Your Valentine",
+    "With all my love",
+    "Forever yours",
+    "Your sweetheart",
+    "Love always"
+  ],
+  "themes": {
+    "default": {
+      "name": "Classic Romance",
+      "colors": {
+        "primary": "#e74c3c",
+        "secondary": "#f8d7da",
+        "accent": "#ffffff"
+      }
+    },
+    "elegant": {
+      "name": "Elegant Rose",
+      "colors": {
+        "primary": "#d63384",
+        "secondary": "#f7e6ec",
+        "accent": "#fef7f9"
+      }
+    },
+    "playful": {
+      "name": "Playful Pink",
+      "colors": {
+        "primary": "#e91e63",
+        "secondary": "#fce4ec",
+        "accent": "#fff8fa"
+      }
+    }
+  },
+  "heartTypes": [
+    "❤️", "💕", "💖", "💗", "💝", "💘", "💓", "💌", "💋", "🌹"
+  ],
+  "inspirationalQuotes": [
+    "Love is not just looking at each other, it's looking in the same direction together.",
+    "You are my today and all of my tomorrows.",
+    "In all the world, there is no heart for me like yours.",
+    "You make my heart smile.",
+    "Love is when you look into someone's eyes and see everything you need."
+  ],
+  "alternativeMessages": [
+    ["Hey", "Beautiful", "Happy", "Valentine's", "Day"],
+    ["Hi", "My", "Sweet", "Valentine", "Love"],
+    ["Hello", "Gorgeous", "Happy", "Love", "Day"],
+    ["Hey", "Babe", "Happy", "Valentine's", "Darling"]
+  ],
+  "letterTemplates": {
+    "romantic": [
+      "My dearest love, as I sit here thinking about you, my heart overflows with emotion. You have brought such joy and meaning into my life that I can hardly find the words to express it.",
+      "Every moment with you feels like a beautiful dream that I never want to wake up from. Your love has transformed me in the most wonderful ways.",
+      "On this special day, I want you to know how deeply and completely I love you. You are my heart, my soul, my everything.",
+      "Thank you for being the incredible person you are, and for sharing your love with me. Happy Valentine's Day, my darling."
+    ],
+    "sweet": [
+      "Hi beautiful! I just wanted to take a moment to tell you how much you mean to me.",
+      "You make every day brighter with your smile, and every moment sweeter with your love.",
+      "I'm so grateful to have you in my life, and I can't wait to create many more wonderful memories together.",
+      "Happy Valentine's Day to the sweetest person I know! I love you more than words can say."
+    ],
+    "playful": [
+      "Roses are red, violets are blue, I'm really bad at poetry, but I'm crazy about you!",
+      "You're the peanut butter to my jelly, the cheese to my macaroni, and the love to my life!",
+      "I love you more than pizza, and that's saying A LOT! (But don't make me choose, okay?)",
+      "You're stuck with me forever now - Happy Valentine's Day, my favorite weirdo! 💕"
+    ]
+  },
+  "settings": {
+    "defaultAnimationSpeed": "normal",
+    "defaultTheme": "default",
+    "enableSounds": false,
+    "enableBackgroundHearts": true,
+    "typewriterSpeed": 50,
+    "slideDelay": 1200
+  }
+}
