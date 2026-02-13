@@ -355,15 +355,22 @@ class ValentineApp {
             this.components.letterDisplay.hide();
         }
 
-        // Show restart button
+        // Reset and show intro slides section
+        if (this.components.introSlides) {
+            this.components.introSlides.stop();
+            this.components.introSlides.resetSlides();
+            this.components.introSlides.show();
+        }
+
+        // Hide restart button
         if (this.elements.restartBtn) {
             this.elements.restartBtn.classList.add('hidden');
         }
 
-        // Restart intro after delay
+        // Restart intro after brief delay
         setTimeout(() => {
             this.startExperience();
-        }, 500);
+        }, 200);
     }
 
     /**
