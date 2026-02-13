@@ -63,13 +63,13 @@ class ValentineApp {
         this.defaultContent = {
             messages: ['Hi', 'Happy', "Valentine's", 'Day', 'Babe'],
             letterText: [
-                "From the moment I first saw you, my world became brighter and more beautiful. Every day with you feels like a gift, and every moment we share together becomes a treasured memory.",
-                "Your smile lights up my darkest days, your laugh is the most beautiful melody I've ever heard, and your love gives my life meaning beyond anything I ever imagined possible.",
-                "On this Valentine's Day, I want you to know that you are not just my love, but my best friend, my partner in all of life's adventures, and the person who makes me want to be better every single day.",
+                "I know I have been very busy these past weeks, and I want to thank you for always being there for me. I can't imagine handling these responsibilities without you by my side.",
+                "Your presence brings me calm, even in the most stressful moments. No matter how many challenges I have to face, knowing you are with me gives me the strength to overcome anything.",
+                "You are my anchor in the storm, my peace in the chaos, and my joy in every ordinary moment. Your unwavering support and love mean more to me than words could ever express.",
                 "I promise to cherish you, support you, and love you not just today, but for all the days of my life. You are my everything, my forever, my heart.",
                 "Happy Valentine's Day, my love. Thank you for being you, and thank you for choosing to share your beautiful life with me."
             ],
-            signature: 'Your Valentine'
+            signature: 'Your Babe'
         };
 
         // Initialize the application
@@ -152,14 +152,11 @@ class ValentineApp {
         if (!this.config.persistSettings) return;
 
         try {
-            const savedSettings = localStorage.getItem('valentine-app-settings');
-            if (savedSettings) {
-                this.state.userSettings = JSON.parse(savedSettings);
-                console.log('📱 Loaded user settings:', this.state.userSettings);
-            }
-        } catch (error) {
-            console.warn('Failed to load user settings:', error);
+            // Clear old settings to force new default content
             localStorage.removeItem('valentine-app-settings');
+            console.log('🗑️ Cleared old settings to load new default content');
+        } catch (error) {
+            console.warn('Failed to clear user settings:', error);
         }
     }
 
