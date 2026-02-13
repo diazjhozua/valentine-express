@@ -13,7 +13,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--color-bg-primary);
+    background: transparent;
     overflow: hidden;
     z-index: 2;
 }

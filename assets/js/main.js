@@ -676,7 +676,7 @@ class ValentineApp {
                 ${rose.left ? `left: ${rose.left};` : ''}
                 ${rose.right ? `right: ${rose.right};` : ''}
                 z-index: 0;
-                opacity: 0.15;
+                opacity: 0.4;
                 pointer-events: none;
             `;
 

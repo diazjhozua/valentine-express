@@ -211,6 +211,7 @@ p {
     align-items: center;
     justify-content: center;
     padding: var(--space-md);
+    background: var(--color-bg-primary);
     z-index: var(--z-content);
 }
 
