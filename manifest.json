@@ -1,0 +1,54 @@
+{
+  "name": "Valentine Express",
+  "short_name": "Valentine Express",
+  "description": "A beautiful, responsive Valentine's Day letter with romantic animations and interactive features",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffeaa7",
+  "theme_color": "#e74c3c",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["entertainment", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/images/valentine-express-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/hearts/heart-fill.svg",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Read Letter",
+      "short_name": "Letter",
+      "description": "Skip intro and go directly to the romantic letter",
+      "url": "/#letter",
+      "icons": [
+        {
+          "src": "assets/images/hearts/heart-fill.svg",
+          "sizes": "32x32",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Customize",
+      "short_name": "Customize",
+      "description": "Customize your Valentine's message",
+      "url": "/#customize",
+      "icons": [
+        {
+          "src": "assets/images/icons/flower.svg",
+          "sizes": "32x32",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}
