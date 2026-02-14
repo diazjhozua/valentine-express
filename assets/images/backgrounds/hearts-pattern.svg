@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <pattern id="heartsPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <!-- Small hearts pattern -->
+      <g opacity="0.1">
+        <!-- Heart 1 -->
+        <path d="M25 15 C 20 10, 10 10, 10 20 C 10 30, 25 40, 25 40 C 25 40, 40 30, 40 20 C 40 10, 30 10, 25 15" fill="#e74c3c"/>
+
+        <!-- Heart 2 (smaller, offset) -->
+        <path d="M40 35 C 38 33, 33 33, 33 37 C 33 41, 40 46, 40 46 C 40 46, 47 41, 47 37 C 47 33, 42 33, 40 35" fill="#ff6b8a"/>
+
+        <!-- Heart 3 (tiny) -->
+        <path d="M15 40 C 14 39, 11 39, 11 41 C 11 43, 15 46, 15 46 C 15 46, 19 43, 19 41 C 19 39, 16 39, 15 40" fill="#ff4757"/>
+      </g>
+    </pattern>
+
+    <!-- Floating hearts for overlay -->
+    <g id="floatingHeart">
+      <path d="M12 8 C 8 4, 0 4, 0 12 C 0 20, 12 30, 12 30 C 12 30, 24 20, 24 12 C 24 4, 16 4, 12 8" fill="#ff6b8a" opacity="0.3"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#heartsPattern)"/>
+
+  <!-- Floating decorative hearts -->
+  <g opacity="0.2">
+    <use href="#floatingHeart" transform="translate(30, 20) scale(0.5) rotate(15)"/>
+    <use href="#floatingHeart" transform="translate(150, 50) scale(0.3) rotate(-20)"/>
+    <use href="#floatingHeart" transform="translate(80, 120) scale(0.4) rotate(30)"/>
+    <use href="#floatingHeart" transform="translate(180, 130) scale(0.6) rotate(-10)"/>
+    <use href="#floatingHeart" transform="translate(20, 160) scale(0.35) rotate(45)"/>
+    <use href="#floatingHeart" transform="translate(120, 180) scale(0.45) rotate(-25)"/>
+  </g>
+</svg>

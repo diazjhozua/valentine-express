@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Gradient for hearts -->
+    <radialGradient id="heartGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Background circle gradient -->
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fff5f5;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ffe5e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd6d6;stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Text gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c0392b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec7063;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Drop shadow filter -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4" flood-opacity="0.3" flood-color="#c0392b"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="190" fill="url(#bgGradient)" stroke="#e74c3c" stroke-width="3" opacity="0.9"/>
+
+  <!-- Decorative hearts around the border -->
+  <g fill="url(#heartGradient)" opacity="0.6">
+    <!-- Top hearts -->
+    <path d="M160 50 C 155 45, 145 45, 145 55 C 145 65, 160 75, 160 75 C 160 75, 175 65, 175 55 C 175 45, 165 45, 160 50" transform="scale(0.7)"/>
+    <path d="M280 50 C 275 45, 265 45, 265 55 C 265 65, 280 75, 280 75 C 280 75, 295 65, 295 55 C 295 45, 285 45, 280 50" transform="scale(0.7)"/>
+
+    <!-- Side hearts -->
+    <path d="M50 200 C 45 195, 35 195, 35 205 C 35 215, 50 225, 50 225 C 50 225, 65 215, 65 205 C 65 195, 55 195, 50 200" transform="scale(0.6)"/>
+    <path d="M380 200 C 375 195, 365 195, 365 205 C 365 215, 380 225, 380 225 C 380 225, 395 215, 395 205 C 395 195, 385 195, 380 200" transform="scale(0.6)"/>
+
+    <!-- Bottom hearts -->
+    <path d="M160 370 C 155 365, 145 365, 145 375 C 145 385, 160 395, 160 395 C 160 395, 175 385, 175 375 C 175 365, 165 365, 160 370" transform="scale(0.7)"/>
+    <path d="M280 370 C 275 365, 265 365, 265 375 C 265 385, 280 395, 280 395 C 280 395, 295 385, 295 375 C 295 365, 285 365, 280 370" transform="scale(0.7)"/>
+  </g>
+
+  <!-- Main central heart -->
+  <path d="M200 120 C 180 100, 140 100, 140 140 C 140 180, 200 240, 200 240 C 200 240, 260 180, 260 140 C 260 100, 220 100, 200 120"
+        fill="url(#heartGradient)"
+        filter="url(#dropShadow)"
+        stroke="#c0392b"
+        stroke-width="2"/>
+
+  <!-- Sparkle effects around main heart -->
+  <g fill="#fff" opacity="0.8">
+    <polygon points="170,110 172,115 177,115 173,119 175,124 170,120 165,124 167,119 163,115 168,115" transform="scale(0.8)"/>
+    <polygon points="230,105 232,110 237,110 233,114 235,119 230,115 225,119 227,114 223,110 228,110" transform="scale(0.6)"/>
+    <polygon points="150,160 152,165 157,165 153,169 155,174 150,170 145,174 147,169 143,165 148,165" transform="scale(0.5)"/>
+    <polygon points="250,150 252,155 257,155 253,159 255,164 250,160 245,164 247,159 243,155 248,155" transform="scale(0.7)"/>
+  </g>
+
+  <!-- Valentine Express Text -->
+  <g font-family="serif" font-weight="bold" fill="url(#textGradient)" filter="url(#dropShadow)">
+    <!-- Valentine -->
+    <text x="200" y="290" font-size="28" text-anchor="middle" letter-spacing="2px">Valentine</text>
+
+    <!-- Express -->
+    <text x="200" y="320" font-size="32" text-anchor="middle" letter-spacing="3px">EXPRESS</text>
+  </g>
+
+  <!-- Subtitle -->
+  <text x="200" y="345" font-size="12" text-anchor="middle" fill="#c0392b" opacity="0.8" font-family="serif" font-style="italic">
+    Love Delivered Digitally
+  </text>
+
+  <!-- Decorative roses at bottom -->
+  <g fill="#e74c3c" opacity="0.7" transform="translate(200,360) scale(0.3)">
+    <!-- Left rose -->
+    <g transform="translate(-30,0)">
+      <circle cx="0" cy="0" r="8"/>
+      <circle cx="-3" cy="-2" r="5" fill="#ff6b9d"/>
+      <circle cx="3" cy="2" r="4" fill="#ec7063"/>
+      <rect x="-1" y="8" width="2" height="12" fill="#2ecc71"/>
+      <ellipse cx="-8" cy="12" rx="6" ry="2" fill="#27ae60"/>
+    </g>
+
+    <!-- Right rose -->
+    <g transform="translate(30,0)">
+      <circle cx="0" cy="0" r="8"/>
+      <circle cx="-3" cy="-2" r="5" fill="#ff6b9d"/>
+      <circle cx="3" cy="2" r="4" fill="#ec7063"/>
+      <rect x="-1" y="8" width="2" height="12" fill="#2ecc71"/>
+      <ellipse cx="8" cy="12" rx="6" ry="2" fill="#27ae60"/>
+    </g>
+  </g>
+</svg>
