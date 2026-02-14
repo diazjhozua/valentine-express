@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="assets/images/valentine-express-logo.svg"/>
+      <square150x150logo src="assets/images/valentine-express-logo.svg"/>
+      <square310x310logo src="assets/images/valentine-express-logo.svg"/>
+      <wide310x150logo src="assets/images/valentine-express-logo.svg"/>
+      <TileColor>#e74c3c</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>

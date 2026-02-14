@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Main Page -->
+  <url>
+    <loc>https://diazjhozua.github.io/valentine-express/</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://diazjhozua.github.io/valentine-express/assets/images/valentine-express-logo.svg</image:loc>
+      <image:title>Valentine Express Logo</image:title>
+      <image:caption>Romantic Valentine's Day letter creation application</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://diazjhozua.github.io/valentine-express/assets/images/hearts/heart-fill.svg</image:loc>
+      <image:title>Heart Icon</image:title>
+      <image:caption>Romantic heart icon for Valentine's Day</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://diazjhozua.github.io/valentine-express/assets/images/icons/rose.svg</image:loc>
+      <image:title>Rose Icon</image:title>
+      <image:caption>Beautiful rose graphic for romantic themes</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Letter Section (fragment identifier) -->
+  <url>
+    <loc>https://diazjhozua.github.io/valentine-express/#letter</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Customization Section -->
+  <url>
+    <loc>https://diazjhozua.github.io/valentine-express/#customize</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Static Assets (important images) -->
+  <url>
+    <loc>https://diazjhozua.github.io/valentine-express/assets/images/valentine-express-logo.svg</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://diazjhozua.github.io/valentine-express/manifest.json</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
